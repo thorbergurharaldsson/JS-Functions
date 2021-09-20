@@ -11,17 +11,31 @@
 <body>
     <h1>Contact list</h1>
 
-    <form class="contactForm">
-        <label for="name">Name: </label><br>
-        <input type="text" id="name" name="name" required><br>
-        <label for="email">Email: </label><br>
-        <input type="email" id="email" name="email" required><br>
-        <label for="phone">Phone: </label><br>
-        <input type="tel" id="phone" name="phone"><br>
-        <label for="company">Company: </label><br>
-        <input type="text" id="company" name="company"><br><br>
-        <button type="button" onclick="addContact(document.getElementById('name').value,document.getElementById('email').value,document.getElementById('phone').value,document.getElementById('company').value)">Add Contact</button><br><br>
-    </form>
+    <div class="container">
+        <div class="innerContainer">
+            <h2>Add contact</h2>
+            <form class="contactForm">
+                <label for="name">Name: </label><br>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email: </label><br>
+                <input type="email" id="email" name="email" required><br>
+                <label for="phone">Phone: </label><br>
+                <input type="tel" id="phone" name="phone"><br>
+                <label for="company">Company: </label><br>
+                <input type="text" id="company" name="company"><br><br>
+                <button type="button" onclick="addContact(document.getElementById('name').value,document.getElementById('email').value,document.getElementById('phone').value,document.getElementById('company').value)">Add Contact</button><br><br>
+            </form>
+        </div>
+        <div class="innerContainer">
+            <h2>Search</h2>
+            <form class="contactForm">
+                <label for="search"></label><br>
+                <input type="text" id="search" name="search" required><br><br>
+                <button type="button" onclick="searchContacts(document.getElementById('search').value)">Search</button><br><br>
+            </form>
+        </div>
+        
+    </div>
 
     <table class="contactList" id="contactList">
         <thead>
@@ -33,9 +47,6 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
-
-        </tbody>
     </table>
 
 
