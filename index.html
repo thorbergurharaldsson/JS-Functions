@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/ad55ceb5b9.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Contact list</h1>
+
+    <form class="contactForm">
+        <label for="name">Name: </label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="email">Email: </label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="phone">Phone: </label><br>
+        <input type="tel" id="phone" name="phone"><br>
+        <label for="company">Company: </label><br>
+        <input type="text" id="company" name="company"><br><br>
+        <button type="button" onclick="addContact(document.getElementById('name').value,document.getElementById('email').value,document.getElementById('phone').value,document.getElementById('company').value)">Add Contact</button><br><br>
+    </form>
+
+    <table class="contactList" id="contactList">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Company</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+
+    <script src="sandbox.js"></script>
+</body>
+</html>
