@@ -1,55 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/ad55ceb5b9.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/ad55ceb5b9.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <!-- Modifying the table ones the body is loaded using onload="function()" in case there is something in the array onload -->
+  <body onload="modifyTable()">
     <h1>Contact list</h1>
 
     <div class="container">
-        <div class="innerContainer">
-            <h2>Add contact</h2>
-            <form class="contactForm">
-                <label for="name">Name: </label><br>
-                <input type="text" id="name" name="name" required><br>
-                <label for="email">Email: </label><br>
-                <input type="email" id="email" name="email" required><br>
-                <label for="phone">Phone: </label><br>
-                <input type="tel" id="phone" name="phone"><br>
-                <label for="company">Company: </label><br>
-                <input type="text" id="company" name="company"><br><br>
-                <button type="button" onclick="addContact(document.getElementById('name').value,document.getElementById('email').value,document.getElementById('phone').value,document.getElementById('company').value)">Add Contact</button><br><br>
-            </form>
-        </div>
-        <div class="innerContainer">
-            <h2>Search</h2>
-            <form class="contactForm">
-                <label for="search"></label><br>
-                <input type="text" id="search" name="search" required><br><br>
-                <button type="button" onclick="searchContacts(document.getElementById('search').value)">Search</button><br><br>
-            </form>
-        </div>
-        
+      <div class="innerContainer">
+        <h2>Add contact</h2>
+        <form class="contactForm">
+          <label for="name">Name: </label><br />
+          <input type="text" id="name" name="name" required /><br />
+          <label for="email">Email: </label><br />
+          <input type="email" id="email" name="email" required /><br />
+          <label for="phone">Phone: </label><br />
+          <input type="tel" id="phone" name="phone" /><br />
+          <label for="company">Company: </label><br />
+          <input type="text" id="company" name="company" /><br /><br />
+          <button
+            type="button"
+            onclick="addContact(document.getElementById('name').value,document.getElementById('email').value,document.getElementById('phone').value,document.getElementById('company').value)"
+          >
+            Add Contact</button
+          ><br /><br />
+        </form>
+      </div>
+      <div class="innerContainer">
+        <h2>Search</h2>
+        <form class="contactForm">
+          <label for="search"></label><br />
+          <input type="text" id="search" name="search" required /><br /><br />
+          <button
+            type="button"
+            onclick="searchContacts(document.getElementById('search').value)"
+          >
+            Search</button
+          ><br /><br />
+        </form>
+      </div>
     </div>
 
     <table class="contactList" id="contactList">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Company</th>
-                <th></th>
-            </tr>
-        </thead>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Company</th>
+          <th></th>
+        </tr>
+      </thead>
     </table>
 
+    <!-- MODAL STARTS HERE -->
+    <div class="modal-container">
+      <div class="modal-content">
+        <h2>Edit contact</h2>
+        <form class="contactForm">
+          <label for="editName">Name: </label><br />
+          <input type="text" id="editName" name="editName" required /><br />
+          <label for="editEmail">Email: </label><br />
+          <input type="email" id="editEmail" name="editEmail" required /><br />
+          <label for="editPhone">Phone: </label><br />
+          <input type="tel" id="editPhone" name="editPhone" /><br />
+          <label for="editCompany">Company: </label><br />
+          <input type="text" id="editCompany" name="editCompany" /><br /><br />
+          <button
+            type="button"
+            onclick="editContact(document.getElementById('editName').value,document.getElementById('editEmail').value,document.getElementById('editPhone').value,document.getElementById('editCompany').value), closeModal()"
+          >
+            Edit Contact</button
+          ><br /><br />
+        </form>
+
+        <button id="close">Close</button>
+      </div>
+    </div>
+    <!-- MODAL ENDS HERE -->
 
     <script src="main.js"></script>
-</body>
+  </body>
 </html>

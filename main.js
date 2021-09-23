@@ -1,9 +1,19 @@
 // An array for contacts in the contact list
-let contacts = [];
+let contacts = [
+  {
+    name: "Þorbergur Haraldsson",
+    email: "tobbergur@gmail.com",
+    phone: "7736688",
+    company: "Snerpa ehf",
+  },
+];
 
 // I call this function when ever I make changes to the contact list to clear the table and display an updated version of the table
 modifyTable = () => {
-  // TODO Clear table
+  const table = document.getElementById("contactList"); // find the table
+
+  // Clears the table before adding the updated value
+  while (table.rows.length > 1) table.rows[1].remove();
 
   // I loop through the array using an arr.forEach
   contacts.forEach((person) => {
@@ -25,7 +35,7 @@ modifyTable = () => {
       phoneCell.innerHTML = person.phone;
       companyCell.innerHTML = person.company;
       editCell.innerHTML = `<a href="#" onclick="removeContact(this)"><i class="far fa-trash-alt"></i></a>
-                              <a href="#" onclick="editContact(this)"><i class="far fa-edit"></i></a>`;
+                              <a href="#" onclick="openModal()"><i class="far fa-edit"></i></a>`;
     }
   });
 };
@@ -57,8 +67,41 @@ addContact = (name, email, phone = "", company = "") => {
   }
 };
 
-removeContact = (row) => {
-  const table = document.getElementById("contactList");
-  const rowDel = row.parentNode.parentNode.rowIndex;
-  table.deleteRow(rowDel);
+// A function to remove contact from the contact list
+removeContact = (btnClicked) => {
+  const row = btnClicked.parentNode.parentNode; //btnClicked returns the innerHTML for the <a> tag, using .parentNode to get next element up, td than tr
+  const cells = row.getElementsByTagName("td"); // Getting all the cells in the row
+  const personEmail = cells[1].innerText; // Assigning the value of the second cell to const personEmail
+
+  contacts = contacts.filter((person) => person.email !== personEmail); // filtering the selected personEmail from the array
+
+  modifyTable();
 };
+
+editContact = (editBtn) => {
+  const row = editBtn.parentNode.parentNode;
+  const cells = row.getElementsByTagName("td");
+
+  const nameValue = cells[0].innerText;
+  const emailValue = cells[1].innerText;
+  const phoneValue = cells[2].innerText;
+  const companyValue = cells[3].innerText;
+
+  modifyTable();
+};
+
+const modal = document.querySelector(".modal-container");
+const closeButton = document.getElementById("close");
+const modalTriggers = document.querySelectorAll("[data-trigger]");
+
+openModal = () => {
+  modal.classList.add("is-open");
+};
+closeModal = () => {
+  modal.classList.remove("is-open");
+};
+modalTriggers.forEach(function (item) {
+  item.addEventListener("click", openModal);
+});
+
+closeButton.addEventListener("click", closeModal);
