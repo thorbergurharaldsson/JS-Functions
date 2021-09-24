@@ -11,11 +11,10 @@
     ></script>
     <title>Document</title>
   </head>
-  <!-- Modifying the table ones the body is loaded using onload="function()" in case there is something in the array onload -->
+  <!-- Modifying the table ones the body is loaded using onload="modifyTable()" in case there is something in the array when the page is loaded -->
   <body onload="modifyTable()">
     <h1>Contact list</h1>
-
-    <div class="container">
+      <!-- ADD CONTACT STARTS -->
       <div class="innerContainer">
         <h2>Add contact</h2>
         <form class="contactForm">
@@ -35,21 +34,9 @@
           ><br /><br />
         </form>
       </div>
-      <div class="innerContainer">
-        <h2>Search</h2>
-        <form class="contactForm">
-          <label for="search"></label><br />
-          <input type="text" id="search" name="search" required /><br /><br />
-          <button
-            type="button"
-            onclick="searchContacts(document.getElementById('search').value)"
-          >
-            Search</button
-          ><br /><br />
-        </form>
-      </div>
-    </div>
+      <!-- ADD CONTACT ENDS -->
 
+    <!-- CONTACT LIST STARTS -->
     <table class="contactList" id="contactList">
       <thead>
         <tr>
@@ -57,37 +44,20 @@
           <th>Email</th>
           <th>Phone</th>
           <th>Company</th>
-          <th></th>
+          <th>Delete/Edit</th>
         </tr>
       </thead>
+      <!-- Here the data from the array is imported -->
     </table>
+    <!-- CONTACT LIST STARTS -->
 
-    <!-- MODAL STARTS HERE -->
+    <!-- EDIT CONTACT MODAL STARTS HERE -->
     <div class="modal-container">
-      <div class="modal-content">
-        <h2>Edit contact</h2>
-        <form class="contactForm">
-          <label for="editName">Name: </label><br />
-          <input type="text" id="editName" name="editName" required /><br />
-          <label for="editEmail">Email: </label><br />
-          <input type="email" id="editEmail" name="editEmail" required /><br />
-          <label for="editPhone">Phone: </label><br />
-          <input type="tel" id="editPhone" name="editPhone" /><br />
-          <label for="editCompany">Company: </label><br />
-          <input type="text" id="editCompany" name="editCompany" /><br /><br />
-          <button
-            type="button"
-            onclick="editContact(document.getElementById('editName').value,document.getElementById('editEmail').value,document.getElementById('editPhone').value,document.getElementById('editCompany').value), closeModal()"
-          >
-            Edit Contact</button
-          ><br /><br />
-        </form>
-
-        <button id="close">Close</button>
-      </div>
+      <!-- Modal is created with javascript using openModal() -->
     </div>
-    <!-- MODAL ENDS HERE -->
+    <!-- EDIT CONTACT MODAL ENDS HERE -->
 
+    <!-- call main.js -->
     <script src="main.js"></script>
   </body>
 </html>

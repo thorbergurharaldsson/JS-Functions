@@ -32,15 +32,6 @@
   color: #000;
 }
 
-/* FORMS STYLING */
-.container {
-  display: flex;
-}
-
-.innerContainer {
-  padding: 2rem;
-}
-
 /* MODAL STYLING */
 .modal-container {
   position: fixed;
