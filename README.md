@@ -1,7 +1,7 @@
 # JS - Functions
 
 I set up a few functions and used DOM manipulation to manage a contact list, it's possible to add, delete or edit a contact.
-This is all done with java script functions
+This is all done with Javascript functions
 
 ## Clone project
 
