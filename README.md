@@ -7,4 +7,4 @@ This is all done with Javascript functions
 
 To clone the project to work on it or view it on your computer:
 
-run in the terminal: `git clone https://github.com/thorbergurharaldsson/JS-Conditionals.git
+run in the terminal: `git clone https://github.com/thorbergurharaldsson/JS-Functions.git
